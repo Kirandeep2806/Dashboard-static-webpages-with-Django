@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'nav.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/track_user_dashboard.css' %}">
+    <script src="{% static 'dashboard/js/fontawsome.js' %}"></script>
+    <title>Project</title>
+</head>
+
+<body>
+    <!-- <div class="nav-wrapper">
+        <nav class="nav">
+            <div class="bard-logo">
+                <i class="fas icus fa-bars"></i>
+            </div>
+            <div class="links">
+                <div class="icons">
+                    <i class="fas icus fa-map-marker-alt" onclick="window.open('/track_user_dashboard', '_self');"></i>
+                    <i class="fas icus fa-bell"></i>
+                    <i class="far icus fa-calendar-alt"></i>
+                    <i class="fas icus fa-question"></i>
+                    <i class="fas icus fa-expand full_screen" title="Full Screen"></i>
+                </div>
+                <div class="main-div">
+                    <div class="chevron-div">
+                        <span class="username" onclick="change_display()">Hello, User <i
+                                class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="options-for-dropdown">
+                        <i class="fas fa-user" onclick="window.open('/profile_dashboard', '_self');"><span>My
+                                Profile</span></i><br>
+                        <i class="fas fa-lock" onclick="AddInfoModal()"><span>Change Password</span></i><br>
+                        <i class="fas fa-sign-out-alt"><span>Logout</span></i><br>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div> -->
+
+    {% include 'nav.html' %}
+
+    <div class="asset-maintenance">
+        <span class="asset-txt" onclick="window.open('/index', '_self');"
+            style="cursor: pointer;">Dashboard</span>
+    </div>
+
+    <div class="icons-breadcrumbs">
+        <div class="bread-crumb">
+            <h2>Calendar</h2>
+            <ul class="bread-crumb-ul">
+                <li class="bread-crumb-li">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="bread-crumb-li">
+                    <a href="#" class="breadcrumb-link breadcrumb-link-active">Calendar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="head">
+            <div class="bg-white-form">
+                <div class="two-radio-btns">
+                    <input type="radio" name="radio_btns" id="schedule">
+                    <label for="schedule">Schedule</label>
+                    <input type="radio" name="radio_btns" id="ticket">
+                    <label for="ticket">Ticket</label>
+                </div>
+                <hr>
+                <form>
+                    <div class="main-form">
+                        <p>Ticket Status</p>
+                        <input type="text" name="status" id="status" placeholder="Status">
+                        <p>Customer</p>
+                        <input type="text" name="customer" id="customer" placeholder="Customers">
+                        <p>Users</p>
+                        <input type="text" name="users" id="users" placeholder="Users">
+                        <p>Assets</p>
+                        <input type="text" name="assets" id="assets" placeholder="Assets">
+                        <p>Model</p>
+                        <input type="text" name="model" id="model" placeholder="Model">
+                        <p>Asset Id</p>
+                        <input type="text" name="asset_id" id="asset_id" placeholder="Asset Id">
+                        <p>Ticket Type</p>
+                        <div class="dropdown-1">
+                            <label for="ticket_type"></label>
+                            <select name="ticket_type" id="ticket_type">
+                                <option value="Select">Select</option>
+                                <option value="option_1">Option 1</option>
+                                <option value="option_2">Option 2</option>
+                                <option value="option_3">Option 3</option>
+                            </select>
+                        </div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <hr>
+                    <div class="color-detailing">
+                        <div class="blue-c"></div>
+                        <span>New&nbsp;|&nbsp;</span>
+                        <div class="yellow-c"></div>
+                        <span>In-Progress&nbsp;|&nbsp;</span>
+                        <div class="pink-c"></div>
+                        <span>WCA&nbsp;|&nbsp;</span>
+                        <div class="pink-c"></div>
+                        <span>WCAA&nbsp;|&nbsp;</span>
+                        <div class="red-c"></div>
+                        <span>Closed</span>
+                    </div>
+                    <div class="btns">
+                        <input type="button" value="Search">
+                        <input type="reset">
+                    </div>
+                </form>
+            </div>
+            <div class="bg-gray-calender">
+                <div class="make-grids-for-inline">
+                    <div class="top_nav first">
+                        <a href="#">Previous</a>
+                        <a href="#" class="active">Today</a>
+                        <a href="#">Next</a>
+                    </div>
+                    <div id="month_year">
+                        <p>April 2020</p>
+                    </div>
+                    <div class="top_nav second">
+                        <a href="#" class="active">Month</a>
+                        <a href="#">Week</a>
+                        <a href="#">Day</a>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div id="weeks">
+                    <p>SUN</p>
+                    <p>MON</p>
+                    <p>TUE</p>
+                    <p>WED</p>
+                    <p>THU</p>
+                    <p>FRI</p>
+                    <p>SAT</p>
+                </div>
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-modal-edit">
+        <div class="modal-edit">
+            <div class="topic-edit">
+                <p>Change Password</p>
+                <span class="close-modal-edit">&times;</span>
+            </div>
+            <div class="topic-required-details-edit">
+                <p>Current Password&nbsp;<span>*</span></p>
+                <input type="password" name="current_password" id="current_password" autocomplete="off"
+                    placeholder="Current Password" required>
+                <p>New Password&nbsp;<span>*</span></p>
+                <input type="password" name="new_password" id="new_password" autocomplete="off"
+                    placeholder="New Password" required>
+                <p>Confirm New Password&nbsp;<span>*</span></p>
+                <input type="password" name="confirm_new_password" id="confirm_new_password" autocomplete="off"
+                    placeholder="Confirm New Password" required>
+                <div class="split-it-for-btns-edit">
+                    <input type="button" value="Cancel" class="cancel_btn_edit">
+                    <input type="button" value="Update">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static 'dashboard/js/index_dashboard.js' %}"></script>
+<script src="{% static 'dashboard/js/calendar_dashboard.js' %}"></script>
+
+</html>

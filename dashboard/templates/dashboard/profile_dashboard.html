@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'nav.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/profile_dashboard.css' %}">
+    <script src="{% static 'dashboard/js/fontawsome.js' %}"></script>
+    <title>Project</title>
+</head>
+
+<body>
+    <!-- <div class="nav-wrapper">
+        <nav class="nav">
+            <div class="bard-logo">
+                <i class="fas icus fa-bars"></i>
+            </div>
+            <div class="links">
+                <div class="icons">
+                    <i class="fas icus fa-map-marker-alt" onclick="window.open('/track_user_dashboard', '_self');"></i>
+                    <i class="fas icus fa-bell"></i>
+                    <i class="far icus fa-calendar-alt"></i>
+                    <i class="fas icus fa-question"></i>
+                    <i class="fas icus fa-expand full_screen" title="Full Screen"></i>
+                </div>
+                <div class="main-div">
+                    <div class="chevron-div">
+                        <span class="username" onclick="change_display()">Hello, User <i
+                                class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="options-for-dropdown">
+                        <i class="fas fa-user" onclick="window.open('/profile_dashboard', '_self');"><span>My
+                                Profile</span></i><br>
+                        <i class="fas fa-lock" onclick="AddInfoModal()"><span>Change Password</span></i><br>
+                        <i class="fas fa-sign-out-alt"><span>Logout</span></i><br>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div> -->
+
+    {% include 'nav.html' %}
+
+    <div class="asset-maintenance">
+        <span class="asset-txt" onclick="window.open('/index', '_self');"
+            style="cursor: pointer;">Dashboard</span>
+    </div>
+
+    <div class="icons-breadcrumbs">
+        <div class="bread-crumb">
+            <h2>My Profile</h2>
+            <ul class="bread-crumb-ul">
+                <li class="bread-crumb-li">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="bread-crumb-li">
+                    <a href="#" class="breadcrumb-link breadcrumb-link-active">My Profile</a>
+                </li>
+            </ul>
+        </div>
+        <i class="fas fa-key" onclick="AddInfoModal()"></i>
+    </div>
+    <div class="content">
+        <div class="head">
+            <form action="{% url 'profile' %}" method="POST">
+                {% csrf_token %}
+                <div class="bg-white">
+                    <div>
+                        <p>Business Type</p>
+                        <input type="text" name="business_type" id="business_type" placeholder="Business Type"
+                            value="{{row.business_type}}" />
+                    </div>
+                    <div>
+                        <p>First Name<span>*</span></p>
+                        <input type="text" name="first_name" id="first_name" placeholder="First Name"
+                            value="{{row.first_name}}" required />
+                    </div>
+                    <div>
+                        <p>Mobile<span>*</span></p>
+                        <input type="text" name="mobile" id="mobile" placeholder="Mobile" value="{{row.mobile}}"
+                            required />
+                    </div>
+                    <div>
+                        <p>Industry Type</p>
+                        <input type="text" name="industry_type" id="industry_type" value="{{row.industry_type}}"
+                            placeholder="Industry Type" />
+                    </div>
+                    <div>
+                        <p>Last Name<span>*</span></p>
+                        <input type="text" name="last_name" id="last_name" value="{{row.last_name}}"
+                            placeholder="Last Name" required />
+                    </div>
+                    <div>
+                        <p>Address</p>
+                        <input type="text" name="address" id="address" value="{{row.address}}" placeholder="Address" />
+                    </div>
+                    <div>
+                        <p>User Id<span>*</span></p>
+                        <input type="text" name="user_id" id="user_id" value="{{row.user_id}}" placeholder="User Id"
+                            required />
+                    </div>
+                    <div>
+                        <p>Email Id</p>
+                        <input type="email" name="email_id" value="{{row.email_id}}" id="email_id" />
+                    </div>
+                    <div></div>
+                    <div>
+                        <p>Email Preferences</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="email_preferences" class="slider-checkbox" {%if row.email_preferences%} checked {%endif%} />
+                    </div>
+                    <div></div>
+                    <div>
+                        <p>Push Notification Preferences</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="push_notification_preferences" class="slider-checkbox" {%if row.push_notification_preferences%}checked{%endif%} />
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div>
+                        <div class="cancel-update">
+                            <input type="button" value="Cancel" id="profile-cancel-btn"
+                                onclick="profile_cancel_btn()" />
+                            <input type="submit" value="Update" />
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </form>
+            <hr />
+            <p>Company Profile :</p>
+            <div class="bg-white part-2">
+                <p>
+                    <b>Company Name :&nbsp;</b>D&D FACILITY MANAGEMENT FOUNDATION
+                    SERVICES
+                </p>
+                <p><b>Contact Number :&nbsp;</b>9177386902</p>
+                <p><b>Contact Email :&nbsp;</b>md.osmanmujahid@gmail.com</p>
+                <p><b>Country :&nbsp;</b>Qatar</p>
+                <p><b>State :&nbsp;</b>Doha</p>
+                <p><b>City :&nbsp;</b>Doha</p>
+                <p><b>Subscription Plan :&nbsp;</b>Professional</p>
+                <p><b>Subscription End Date :&nbsp;</b>10-Apr-2020</p>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="bg-modal-edit">
+        <div class="modal-edit">
+            <div class="topic-edit">
+                <p>Change Password</p>
+                <span class="close-modal-edit">&times;</span>
+            </div>
+            <div class="topic-required-details-edit">
+                <p>Current Password&nbsp;<span>*</span></p>
+                <input type="password" name="current_password" id="current_password" autocomplete="off"
+                    placeholder="Current Password" required />
+                <p>New Password&nbsp;<span>*</span></p>
+                <input type="password" name="new_password" id="new_password" autocomplete="off"
+                    placeholder="New Password" required />
+                <p>Confirm New Password&nbsp;<span>*</span></p>
+                <input type="password" name="confirm_new_password" id="confirm_new_password" autocomplete="off"
+                    placeholder="Confirm New Password" required />
+                <div class="split-it-for-btns-edit">
+                    <input type="button" value="Cancel" class="cancel_btn_edit" />
+                    <input type="button" value="Update" />
+                </div>
+            </div>
+        </div>
+</body>
+<script src="{% static 'dashboard/js/index_dashboard.js' %}"></script>
+
+</html>

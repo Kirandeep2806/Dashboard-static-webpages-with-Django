@@ -1,0 +1,28 @@
+<div class="nav-wrapper">
+    <nav class="nav">
+        <div class="bard-logo">
+            <i class="fas icus fa-bars"></i>
+        </div>
+        <div class="links">
+            <div class="icons">
+                <i class="fas icus fa-map-marker-alt" onclick="window.open('/track_user', '_self');"></i>
+                <i class="fas icus fa-bell"></i>
+                <i class="far icus fa-calendar-alt"></i>
+                <i class="fas icus fa-question"></i>
+                <i class="fas icus fa-expand full_screen" title="Full Screen"></i>
+            </div>
+            <div class="main-div">
+                <div class="chevron-div">
+                    <span class="username" onclick="change_display()">Hello, User <i
+                            class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="options-for-dropdown">
+                    <i class="fas fa-user" onclick="window.open('/profile', '_self');"><span>My
+                            Profile</span></i><br>
+                    <i class="fas fa-lock" onclick="AddInfoModal()"><span>Change Password</span></i><br>
+                    <i class="fas fa-sign-out-alt"><span>Logout</span></i><br>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.nav-wrapper {
+  background-color: #fff;
+  max-height: 5rem;
+  height: 6vh;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  -webkit-box-shadow: 0 1px 1rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 1rem rgba(0, 0, 0, 0.5);
+}
+
+.nav-wrapper .nav {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.nav-wrapper .nav .bard-logo {
+  margin-left: 2rem;
+  font-size: 1.2rem;
+}
+
+.nav-wrapper .nav .icus {
+  display: inline-block;
+  margin: auto 1.75rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  -webkit-transition: all ease-out 0.12s;
+  transition: all ease-out 0.12s;
+}
+
+.nav-wrapper .nav .icus:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.nav-wrapper .nav .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.nav-wrapper .nav .links .icons {
+  margin-right: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.nav-wrapper .nav .links .main-div .chevron-div {
+  margin: auto 1.3em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.nav-wrapper .nav .links .main-div .chevron-div .username {
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-weight: 550;
+}
+
+.nav-wrapper .nav .links .main-div .chevron-div .username .fas {
+  padding-top: 0.3em;
+  font-size: 0.9em;
+}
+
+.hide {
+  display: block !important;
+}
+
+.main-div {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  position: relative;
+  width: 100%;
+  margin-right: 2em;
+}
+
+.main-div > div > i {
+  margin-right: 2em;
+}
+
+.fas.fa-chevron-down {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.options-for-dropdown {
+  display: none;
+  position: absolute;
+  width: 170%;
+  right: 0;
+  top: 1.3em;
+  color: #595959;
+  border: 1px solid white;
+  background-color: white;
+}
+
+.options-for-dropdown > i {
+  cursor: pointer;
+  margin: 0.5em 0;
+  margin-left: 0.8em;
+}
+
+.options-for-dropdown span {
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 0.9em;
+  padding: 0.8em;
+}

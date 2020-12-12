@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'nav.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/index_dashboard.css' %}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{% static 'dashboard/js/fontawsome.js' %}"></script>
+    <title>Project</title>
+</head>
+
+<body>
+    <!-- <div class="nav-wrapper">
+        <nav class="nav">
+            <div class="bard-logo">
+                <i class="fas icus fa-bars"></i>
+            </div>
+            <div class="links">
+                <div class="icons">
+                    <i class="fas icus fa-map-marker-alt" onclick="window.open('/track_user_dashboard', '_self');"></i>
+                    <i class="fas icus fa-bell"></i>
+                    <i class="far icus fa-calendar-alt"></i>
+                    <i class="fas icus fa-question"></i>
+                    <i class="fas icus fa-expand full_screen" title="Full Screen"></i>
+                </div>
+                <div class="main-div">
+                    <div class="chevron-div">
+                        <span class="username" onclick="change_display()">Hello, User <i
+                                class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="options-for-dropdown">
+                        <i class="fas fa-user" onclick="window.open('/profile_dashboard', '_self');"><span>My
+                                Profile</span></i><br>
+                        <i class="fas fa-lock" onclick="AddInfoModal()"><span>Change Password</span></i><br>
+                        <i class="fas fa-sign-out-alt"><span>Logout</span></i><br>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div> -->
+
+    {% include 'nav.html' %}
+
+    <div class="asset-maintenance">
+        <span class="asset-txt" onclick="window.open('/index', '_self');"
+            style="cursor: pointer;">Dashboard</span>
+    </div>
+
+    <div class="icons-breadcrumbs">
+        <div class="bread-crumb">
+            <h2>Dashboard</h2>
+        </div>
+    </div>
+
+    <div class="content">
+        <p class="text-content">Breakdown</p>
+        <div class="make-cards same">
+            <div class="c-green">
+                <i class="fas fa-ticket-alt"></i>
+                <p>New</p>
+                <span>0</span>
+            </div>
+            <div class="light-blue">
+                <i class="fas fa-tasks"></i>
+                <p>In Progress</p>
+                <span>0</span>
+            </div>
+            <div class="dark-blue-2">
+                <i class="fas fa-receipt"></i>
+                <p>To Be Reassigned</p>
+                <span>0</span>
+            </div>
+            <div class="dark-blue-1">
+                <i class="fas fa-scroll"></i>
+                <p>Overdue</p>
+                <span>0</span>
+            </div>
+        </div>
+        <p class="text-content">Schedule</p>
+        <div class="make-cards same">
+            <div class="c-gray">
+                <i class="fas fa-calendar-alt"></i>
+                <p>New</p>
+                <span>0</span>
+            </div>
+            <div class="c-orange">
+                <i class="fas fa-cogs"></i>
+                <p>In Progress</p>
+                <span>0</span>
+            </div>
+            <div class="dark-blue-2">
+                <i class="fas fa-receipt"></i>
+                <p>To Be Reassigned</p>
+                <span>0</span>
+            </div>
+            <div class="dark-blue-unq">
+                <i class="fas fa-calendar-day"></i>
+                <p>Overdue</p>
+                <span>0</span>
+            </div>
+        </div>
+        <div class="make-cards">
+            <div class="colgraph-line">
+                <div class="details-only">
+                    <p>Asset Vs Breakdown</p>
+                </div>
+                <div class="container">
+                    <div id="chart_div_1"></div>
+                    <p id="txt_below_piechart">NO DATA</p>
+                </div>
+            </div>
+            <div class="colgraph">
+                <div class="details-only">
+                    <p>Breakdown Tickets</p>
+                    <i class="fas fa-filter" onclick="BreakdownTicketsModal()"></i>
+                </div>
+                <div id="columnchart_values"></div>
+            </div>
+            <div class="piechart">
+                <div class="details-only">
+                    <p>Repeated Problems</p>
+                    <i class="fas fa-filter" onclick="RepeatedProblemsModal()"></i>
+                </div>
+                <div class="container">
+                    <div id="piechart_1"></div>
+                    <p id="txt_below_piechart">NO DATA</p>
+                </div>
+            </div>
+            <div class="piechart">
+                <div class="details-only">
+                    <p>Schedule Status</p>
+                    <i class="fas fa-filter" onclick="ScheduleStatusModal()"></i>
+                </div>
+                <div class="container">
+                    <div id="piechart_2"></div>
+                    <p id="txt_below_piechart">NO DATA</p>
+                </div>
+            </div>
+        </div>
+        <div class="make-cards-x2">
+            <div class="colgraph-line">
+                <div class="details-only">
+                    <p>Breakdown Aging</p>
+                </div>
+                <div class="container">
+                    <div id="chart_div_2"></div>
+                    <p id="txt_below_piechart">NO DATA</p>
+                </div>
+            </div>
+            <span></span>
+        </div>
+    </div>
+    <div class="bg-modal-edit">
+        <div class="modal-edit">
+            <div class="topic-edit">
+                <p>Change Password</p>
+                <span class="close-modal-edit">&times;</span>
+            </div>
+            <div class="topic-required-details-edit">
+                <p>Current Password&nbsp;<span>*</span></p>
+                <input type="password" name="current_password" id="current_password" autocomplete="off"
+                    placeholder="Current Password" required>
+                <p>New Password&nbsp;<span>*</span></p>
+                <input type="password" name="new_password" id="new_password" autocomplete="off"
+                    placeholder="New Password" required>
+                <p>Confirm New Password&nbsp;<span>*</span></p>
+                <input type="password" name="confirm_new_password" id="confirm_new_password" autocomplete="off"
+                    placeholder="Confirm New Password" required>
+                <div class="split-it-for-btns-edit">
+                    <input type="button" value="Cancel" class="cancel_btn_edit">
+                    <input type="button" value="Update">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-modal-edit">
+        <div class="modal-edit">
+            <div class="topic-edit">
+                <p>Breakdown Tickets</p>
+                <span class="close-modal-edit">&times;</span>
+            </div>
+            <div class="topic-required-details-edit">
+                <select name="frequency" id="frequency">
+                    <option value="default" disabled selected>Select Frequency</option>
+                    <option value="first">Demo-1</option>
+                    <option value="second">Demo-2</option>
+                    <option value="third">Demo-3</option>
+                </select>
+                <div class="split-it-for-btns-edit">
+                    <input type="button" value="Cancel" class="cancel_btn_edit">
+                    <input type="button" value="Submit">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-modal-edit">
+        <div class="modal-edit">
+            <div class="topic-edit">
+                <p>Repeated Problems</p>
+                <span class="close-modal-edit">&times;</span>
+            </div>
+            <div class="topic-required-details-edit">
+                <select name="frequency" id="frequency">
+                    <option value="default" disabled selected>Select Defect</option>
+                    <option value="first">Demo-1</option>
+                    <option value="second">Demo-2</option>
+                    <option value="third">Demo-3</option>
+                </select>
+                <div class="split-it-for-btns-edit">
+                    <input type="button" value="Cancel" class="cancel_btn_edit">
+                    <input type="button" value="Submit">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-modal-edit">
+        <div class="modal-edit">
+            <div class="topic-edit">
+                <p>Schedule Status</p>
+                <span class="close-modal-edit">&times;</span>
+            </div>
+            <div class="topic-required-details-edit">
+                <select name="frequency" id="frequency">
+                    <option value="default" disabled selected>Select Frequency</option>
+                    <option value="first">Demo-1</option>
+                    <option value="second">Demo-2</option>
+                    <option value="third">Demo-3</option>
+                </select>
+                <div class="split-it-for-btns-edit">
+                    <input type="button" value="Cancel" class="cancel_btn_edit">
+                    <input type="button" value="Submit">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{% static 'dashboard/js/index_dashboard.js' %}"></script>
+
+</html>

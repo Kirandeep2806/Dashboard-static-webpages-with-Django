@@ -1,0 +1,431 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  cursor: auto;
+}
+
+.asset-maintenance {
+  position: fixed;
+  width: 18vw;
+  background-color: #0f2846;
+  height: 100vh;
+}
+
+.asset-maintenance .asset-txt {
+  position: absolute;
+  font-family: "Calibri";
+  text-align: center;
+  font-size: larger;
+  color: white;
+  top: 3em;
+  width: 100%;
+}
+
+.icons-breadcrumbs {
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 6vh;
+  left: 18vw;
+  width: 82vw;
+  height: 12vh;
+  box-shadow: 0 1px 1rem rgba(0, 0, 0, 0.5);
+}
+
+.icons-breadcrumbs .bread-crumb h2 {
+  font-size: 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  margin: 1em 1em;
+}
+
+.content {
+  position: absolute;
+  top: 19vh;
+  left: 18vw;
+  width: 82vw;
+  height: 81vh;
+  padding-bottom: 2em;
+  background-color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+.text-content {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
+  margin-left: 1em;
+  margin-top: 0.5em;
+  margin-right: 1em;
+}
+
+.content .make-cards {
+  display: grid;
+  grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+  margin-top: 0.7em;
+  grid-column-gap: 1em;
+  margin-left: 1.2em;
+}
+
+.content .make-cards.same > div {
+  position: relative;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px 1px #ababab;
+  padding: 0.3em 0;
+  cursor: pointer;
+}
+
+.content .make-cards > div {
+  position: relative;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px 1px #ababab;
+  cursor: pointer;
+}
+
+.content .make-cards > div > i {
+  position: absolute;
+  right: 1em;
+  font-size: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content .make-cards > div > p,
+.content .make-cards > div > span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 0.5em;
+}
+
+.content .make-cards > div > p {
+  margin-left: 1em;
+}
+
+.content .make-cards > div > span {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.content .make-cards .c-green span {
+  color: #18e923ea;
+}
+
+.content .make-cards .c-green i {
+  top: 30%;
+  transform: rotate(-45deg);
+  color: #00b503;
+}
+
+.content .make-cards .light-blue span,
+.content .make-cards .light-blue i {
+  color: #1cc0ed;
+}
+
+.content .make-cards .dark-blue-2 span,
+.content .make-cards .dark-blue-2 i {
+  color: #0a8aad;
+}
+
+.content .make-cards .dark-blue-1 span,
+.content .make-cards .dark-blue-1 i {
+  color: #37bade;
+}
+
+.content .make-cards .c-gray span,
+.content .make-cards .c-gray i {
+  color: #5e5e5e;
+}
+
+.content .make-cards .c-orange span,
+.content .make-cards .c-orange i {
+  color: #f0a80e;
+}
+
+.content .make-cards .dark-blue-unq span,
+.content .make-cards .dark-blue-unq i {
+  color: #038ba6;
+}
+
+.details-only {
+  padding: 0.5em 0;
+  background-color: #e3e3e3;
+}
+
+.details-only p {
+  margin-left: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  width: 14em;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 2px solid #d1d1d1;
+  border-radius: 0.5em;
+  background-color: #f2f2f2;
+  height: fit-content;
+  margin: 0.9em 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container #chart_div_1,
+.container #chart_div_2,
+.container #piechart_1,
+.container #piechart_2 {
+  margin-top: -1.2em;
+  opacity: 0.3;
+}
+
+#txt_below_piechart {
+  margin-top: -1em;
+  opacity: 0.3;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#columnchart_values {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 17.1em;
+  height: fit-content;
+}
+
+.colgraph {
+  overflow: hidden;
+}
+
+.colgraph .details-only i,
+.piechart .details-only i {
+  position: relative;
+  float: right;
+  bottom: 1.1em;
+  right: 0.7em;
+  color: #757575;
+}
+
+.content .make-cards-x2 {
+  display: grid;
+  grid-template-columns: auto 50%;
+  margin-top: 0.7em;
+  grid-column-gap: 1em;
+  margin-left: 1.2em;
+}
+
+.content .make-cards-x2 > div {
+  position: relative;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px 1px #ababab;
+  cursor: pointer;
+}
+
+.content .make-cards-x2 > div > i {
+  position: absolute;
+  right: 1em;
+  font-size: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content .make-cards-x2 > div > p,
+.content .make-cards-x2 > div > span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 0.5em;
+}
+
+.content .make-cards-x2 > div > p {
+  margin-left: 1em;
+}
+
+.content .make-cards-x2 > div > span {
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.icons-breadcrumbs {
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 6vh;
+  left: 18vw;
+  width: 82vw;
+  height: 19vh;
+  box-shadow: 0 1px 1rem rgba(0, 0, 0, 0.5);
+}
+
+.icons-breadcrumbs .bread-crumb h2 {
+  font-size: 24px;
+  font-family: "Calibri";
+  margin: 1em 1em;
+}
+
+.icons-breadcrumbs .bread-crumb ul {
+  margin-left: 1.4em;
+}
+
+.icons-breadcrumbs .bread-crumb .bread-crumb-ul li {
+  display: inline-block;
+}
+
+.icons-breadcrumbs
+  .bread-crumb
+  .bread-crumb-ul
+  .bread-crumb-li
+  .breadcrumb-link {
+  font-family: "Roboto", "Trebuchet MS", sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  color: #999999;
+}
+
+.icons-breadcrumbs
+  .bread-crumb
+  .bread-crumb-ul
+  .bread-crumb-li
+  .breadcrumb-link-active {
+  color: #383838;
+  font-weight: normal;
+}
+
+.icons-breadcrumbs .bread-crumb .bread-crumb-ul li:not(:last-of-type)::after {
+  content: "\203a";
+  margin: 0 5px;
+  color: #cccccc;
+}
+
+/* Modal Code */
+
+.bg-modal-edit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  opacity: 0;
+  transition: transform 0.5s ease-out;
+}
+
+.modal-edit {
+  margin-top: 5%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  height: fit-content;
+  width: 27%;
+  border-radius: 5px;
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  flex-direction: column;
+  transition: transform 1s ease-in-out;
+}
+
+.close-modal-edit {
+  color: #bfbfbf;
+  position: absolute;
+  font-size: 1.5em;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.bg-modal-edit .modal-edit .topic-edit {
+  font-family: Roboto;
+  font-size: 1em;
+  padding-top: 2em;
+  padding-left: 11px;
+  background-color: #dedede;
+}
+
+.bg-modal-edit .modal-edit .topic-edit p {
+  position: relative;
+  bottom: 0.7em;
+}
+
+.bg-modal-edit .modal-edit .topic-required-details-edit p {
+  padding-left: 5%;
+  font-size: 14px;
+  padding-top: 1.3em;
+  font-family: Roboto;
+}
+
+.bg-modal-edit .modal-edit .topic-required-details-edit p span {
+  color: red;
+}
+
+.bg-modal-edit .modal-edit .topic-required-details-edit input[type="password"] {
+  margin-top: 1%;
+  margin-left: 5%;
+  color: #363535;
+  width: 90%;
+  font-family: Roboto;
+  outline: none;
+  border-style: none none solid none;
+  font-size: 14px;
+  padding: 1px 0;
+  height: 2em;
+}
+
+.split-it-for-btns-edit {
+  text-align: center;
+  padding: 1.3em 0;
+}
+
+.bg-modal-edit
+  .modal-edit
+  .topic-required-details-edit
+  .split-it-for-btns-edit
+  input[value="Cancel"] {
+  font-family: Calibri;
+  padding: 0.3em 0.9em;
+  margin-right: 1em;
+  outline: none;
+  border: 1px solid #e0e0e0;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.bg-modal-edit
+  .modal-edit
+  .topic-required-details-edit
+  .split-it-for-btns-edit
+  input[value="Update"],
+.bg-modal-edit
+  .modal-edit
+  .topic-required-details-edit
+  .split-it-for-btns-edit
+  input[value="Submit"] {
+  font-family: Calibri;
+  padding: 0.3em 0.9em;
+  margin-right: 1em;
+  outline: none;
+  border: 1px solid #1d75b3;
+  background-color: #1d75b3;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+/* Modal Code */
+
+.bg-modal-edit .modal-edit .topic-required-details-edit select {
+  outline: none;
+  border-style: none none solid none;
+  border-bottom: 2px solid #a8a8a8;
+  margin: 1em;
+  margin-top: 2em;
+  font-size: 0.9em;
+  width: 50%;
+}
